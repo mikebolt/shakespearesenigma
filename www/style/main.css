@@ -1,0 +1,50 @@
+.rule-card {
+  color: darkbrown;
+  background-color: tan;
+  border: 2px solid darkblue;
+}
+
+.remove-rule-button, .minimize-rule-button {
+  float: right;
+}
+
+.tape-cell {
+  display: inline-block;
+  text-align: center;
+}
+
+.tape-cell-label {
+  text-align: center;
+}
+
+.tape-cell-value {
+  border-radius: 0.5em;
+  border: 2px solid blue;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.tape-cell-index {
+  text-align: center;
+}
+
+.placeholder {
+  display: none;
+}
+
+.initial-state-chooser, .initial-symbol-chooser, .print-symbol-chooser, .next-state-chooser, .shift-chooser {
+  display: inline-block;
+}
+
+.list-header {
+  border: none;
+  text-decoration: underline;
+}
+
+.center {
+  text-align: center;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" lang="en-us"/>
+  <title>Shakespeare's Enigma</title>
+  <script src="lib/jquery/jquery-1.12.0.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.js"></script><!-- TODO: use min -->
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.css"/>
+  <link rel="stylesheet" href="style/main.css"/>
+</head>
+<body>
+  <!-- Prototypes -->
+
+  <!-- Prototype for rule widget -->
+  <div id="rule-prototype" class="rule-card col-md-6" style="display: none">
+    <span class="rule-name"></span>
+    <span class="minimize-rule-button btn btn-small btn-default">Minimize</span>
+    <span class="remove-rule-button btn btn-small btn-danger">Remove</span><br/>
+    When in state <div class="initial-state-chooser"></div>
+    and symbol <div class="initial-symbol-chooser"></div> is scanned,
+    print the symbol <div class="print-symbol-chooser"></div>,
+    enter state <div class="next-state-chooser"></div>,
+    and move <div class="shift-chooser"></div>
+  </div>
+
+  <!-- Prototype for dropdown -->
+  <span id="dropdown-prototype" class="dropdown" style="display: none">
+    <button type="button" class="btn btn-default dropdown-toggle"
+            data-toggle="dropdown">
+      <span class="dropdown-label"></span>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+    </ul>
+  </span>
+
+  <!-- Prototype for tape cell -->
+  <div id="cell-prototype" class="tape-cell" style="display: none">
+    <div class="tape-cell-label"></div>
+    <div class="tape-cell-value"></div>
+    <div class="tape-cell-index"></div>
+  </div>
+
+  <!-- Real HTML -->
+  <div id="code-messages">
+    <div class="code-message">
+      <span class="code-message-id">Code Message #1: </span>
+      <pre>O, ROMXO, ROMXO! WHXRXFORX ART THOU ROMXO?</pre>
+    </div>
+    <div class="code-message">
+      <span class="code-message-id">Code Message #2: </span>
+      <pre>A MOST COURTXOUS EEPOSITION.</pre>
+    </div>
+    <div class="code-message">
+      <span class="code-message-id">Code Message #3: </span>
+      <pre>I AM SO VXEXD THAT XVXRY PART ABOUT MX QUIVXRS.</pre>
+    </div>
+  </div>
+  <div class="center">State: initial_state</div>
+  <div id="turing-tape"></div>
+  <br/>
+
+  <div id="action-buttons">
+    <span id="add-rule-button" class="btn btn-large btn-primary">Add a Rule</span>
+    <span id="simulate-step-button" class="btn btn-large btn-primary">Simulate a Step</span>
+    <span id="simulate-to-end-button" class="btn btn-large btn-primary">Simulate to End</span>
+    <span id="reset-machine-button" class="btn btn-large btn-warning">Reset Machine State</span>
+    <span id="clear-rules-button" class="btn btn-large btn-danger">Remove All Rules</span>
+  </div>
+
+  <div id="control-area">
+    <div class="col-md-2">
+      <h3 class="list-header">Symbols</h3>
+      <ul id="symbol-list" class="list-group"></ul>
+    </div>
+    <div class="col-md-2">
+      <h3 class="list-header h3">States</h3>
+      <input id="state-input" type="text" placeholder="state">
+      <span id="add-state" class="btn btn-primary">Add State</span>
+      <ul id="state-list" class="list-group"></ul>
+    </div>
+    <div id="rule-container" class="col-md-8"></div>
+  </div>
+
+  <script src="src/TuringMachine.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
