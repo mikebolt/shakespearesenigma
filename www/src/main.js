@@ -172,6 +172,13 @@ $(window).on('load', function() {
     tm.step();
     renderTape();
 
+    var stateLabel = $('#state-label');
+    var stateText = tm.state;
+    if (tm.state === undefined) {
+      stateText = 'Halted';
+    }
+    stateLabel.text('State: ' + stateText);
+
     if (tm.isHalted()) {
       var success = true;
       for (var i = 0; i < GOAL.length; ++i) {
